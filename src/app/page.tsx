@@ -5,35 +5,44 @@ import { useRouter } from "next/navigation";
 import SpaceBackground from "@/components/landing/SpaceBackground";
 import StarField from "@/components/landing/StarField";
 import GenderSelection from "@/components/landing/GenderSelection";
+import WarpTransition from "@/components/landing/WarpTransition";
+import {useState} from "react";
 
 export default function Home() {
-  const router = useRouter();
+    const router = useRouter();
+    const [warp, setWarp] = useState(false);
 
-  const handleSelect = (gender: string) => {
-    localStorage.setItem("visitorGender", gender);
+    const handleSelect = (gender: string) => {
+        localStorage.setItem("visitorGender", gender);
 
-    router.push("/journey");
-  };
+        setWarp(true);
 
-  return (
-      <main className="relative h-screen overflow-hidden flex flex-col items-center justify-center">
+        setTimeout(() => {
+            router.push("/journey");
+        }, 2000);
+    };
 
-        <SpaceBackground />
-        <StarField />
+    return (
+        <main className=" relative h-screen overflow-hidden flex flex-col
+            items-center justify-center bg-black "
+        >
+            <WarpTransition active={warp} />
 
-        <div className="text-center">
-          <h1 className=" text-white text-6xl md:text-8xl font-black tracking-widest
-              drop-shadow-[0_0_20px_rgba(255,255,255,0.7)] ">
-            WELCOME
-          </h1>
+            <SpaceBackground />
+            <StarField />
 
-          <p className="text-white/70 mt-6 text-xl">
-            Who are you?
-          </p>
+            <div className={` text-center transition-all duration-2000 ${warp ? "scale-[4] opacity-0 blur-xl" : ""} `}>
+                <h1 className=" text-white text-6xl md:text-8xl font-black tracking-widest
+                drop-shadow-[0_0_20px_rgba(255,255,255,0.7)] ">
+                    WELCOME
+                </h1>
 
-          <GenderSelection onSelect={handleSelect} />
-        </div>
+                <p className="text-white/70 mt-6 text-xl">
+                    Who are you?
+                </p>
 
-      </main>
-  );
+                <GenderSelection onSelect={handleSelect} />
+            </div>
+        </main>
+    );
 }
