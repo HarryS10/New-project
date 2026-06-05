@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 
-type Props = {
+interface GenderSelectionProps {
     onSelect: (gender: string) => void;
-};
+}
 
-export default function GenderSelection({onSelect,}: Props) {
+export default function GenderSelection({ onSelect, }: GenderSelectionProps) {
     return (
-        <div className=" flex flex-col items-center gap-5 mt-10 ">
+        <div className="flex flex-col items-center gap-5 mt-10">
             {["MALE", "FEMALE"].map((gender) => (
                 <motion.button
                     key={gender}
@@ -21,8 +21,8 @@ export default function GenderSelection({onSelect,}: Props) {
                     }}
                     onClick={() => onSelect(gender)}
                     className=" w-64 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md
-                    text-white font-bold tracking-widest shadow-lg hover:border-cyan-400 hover:shadow-cyan-500/30
-                    transition-all duration-300 "
+                    text-white font-bold tracking-widest shadow-lg hover:border-cyan-400
+                    hover:shadow-cyan-500/30 transition-all duration-300  "
                 >
                     {gender}
                 </motion.button>

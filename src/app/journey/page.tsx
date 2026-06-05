@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import IntroDialog from "@/components/journey/IntroDialog";
 
 export default function JourneyPage() {
     const gender = useMemo(() => {
@@ -9,15 +10,17 @@ export default function JourneyPage() {
     }, []);
 
     return (
-        <main className="h-screen bg-black flex items-center justify-center">
-            <div className="text-center text-white">
-                <h1 className="text-5xl font-bold">
-                    Welcome to Shashwat&apos;s Portfolio 🚀
-                </h1>
+        <main
+            className=" h-screen bg-black relative overflow-hidden flex items-center justify-center "
+        >
+            {/* Background Stars */}
+            <div className="absolute inset-0">
+                <div className="stars" />
+            </div>
 
-                <p className="mt-4 text-xl text-white/70">
-                    Selected: {gender}
-                </p>
+            {/* Main Content */}
+            <div className="relative z-10">
+                <IntroDialog gender={gender} />
             </div>
         </main>
     );
