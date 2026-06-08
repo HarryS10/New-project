@@ -3,9 +3,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface IntroDialogProps { gender: string; }
+interface IntroDialogProps {
+    gender: string;
+    onStartMission: () => void;
+}
 
-export default function IntroDialog({ gender, }: IntroDialogProps) {
+export default function IntroDialog({
+                                        gender,
+                                        onStartMission,
+                                    }: IntroDialogProps) {
     const [name, setName] = useState("");
     const [submitted, setSubmitted] = useState(false);
 
@@ -100,8 +106,8 @@ export default function IntroDialog({ gender, }: IntroDialogProps) {
                         </p>
 
                         <button
-                            className=" mt-6 px-6 py-3 rounded-xl bg-cyan-500
-                                hover:bg-cyan-400 transition"
+                            onClick={onStartMission}
+                            className=" mt-6 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 transition"
                         >
                             START MISSION
                         </button>
