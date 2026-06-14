@@ -106,7 +106,7 @@ export default function CommandCenter() {
 
                     <p className="text-white/60 text-sm">
                         Use the navigation panel to
-                        explore Shashwat's portfolio,
+                        explore Shashwat&apos;s portfolio,
                         projects, skills and journey.
                     </p>
                 </div>
