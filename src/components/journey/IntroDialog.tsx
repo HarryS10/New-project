@@ -42,9 +42,20 @@ export default function IntroDialog({
                 SYSTEM ONLINE...
             </p>
 
-            <h1 className="text-4xl font-bold mb-6">
+            <motion.div className=" border border-cyan-400/30 bg-cyan-500/5 p-6 rounded-xl backdrop-blur-md
+            shadow-[0_0_20px_rgba(0,255,255,0.3)] "
+                animate={{
+                    opacity: [0.7, 1, 0.7],
+                    y: [-2, 2, -2],
+                }}
+                transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            >
                 Welcome to Shashwat&apos;s Portfolio 🚀
-            </h1>
+            </motion.div>
 
             <AnimatePresence mode="wait">
                 {!submitted ? (

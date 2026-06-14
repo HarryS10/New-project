@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 import type { Metadata } from "next";
 import { Orbitron } from "next/font/google";
 import "./globals.css";

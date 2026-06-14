@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 export const portfolioData = {
     personal: {
         name: "Shashwat Sinha",
